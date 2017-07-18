@@ -112,6 +112,7 @@ export default class HomeScreen extends Component {
           <Button
             onPress={() => {
               console.log('FIX SENTRY ERROR');
+              throw new Error();
             }}
             title="Throw error"
           />
