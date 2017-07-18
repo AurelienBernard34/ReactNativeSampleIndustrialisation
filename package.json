@@ -13,6 +13,7 @@
 		"prop-types": "^15.5.10",
 		"react": "16.0.0-alpha.12",
 		"react-native": "0.45.1",
+		"react-native-sentry": "^0.14.6",
 		"react-navigation": "^1.0.0-beta.11"
 	},
 	"devDependencies": {
@@ -26,7 +27,8 @@
 		"eslint-plugin-react": "^7.1.0",
 		"eslint-plugin-react-native": "^2.3.2",
 		"jest": "20.0.4",
-		"react-test-renderer": "16.0.0-alpha.12"
+		"react-test-renderer": "16.0.0-alpha.12",
+		"sentry-cli-binary": "^1.17.0"
 	},
 	"jest": {
 		"preset": "react-native",

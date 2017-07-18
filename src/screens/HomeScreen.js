@@ -6,6 +6,7 @@ import {
   View,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import { Sentry, SentrySeverity } from 'react-native-sentry';
 
 import Info from '../components/Info';
 
@@ -14,6 +15,23 @@ import { JSX_SCENE_NAME } from '../screens/JsxScreen';
 import { STATE_SCENE_NAME } from '../screens/StateScreen';
 
 export const HOME_SCENE_NAME = 'HOME_SCENE';
+
+
+Sentry.config('https://2d9b067dd9c1453f8c5a9e0883901b33:58d3eb5287054a4d9b84b25c13cb5b51@sentry.io/192725').install();
+
+Sentry.setTagsContext({
+  environment: 'production',
+  react: true,
+});
+
+Sentry.setUserContext({
+  email: 'aurelienbernard34@gmail.com',
+  userID: '144547',
+  username: 'Jwah',
+  extra: {
+    isAdmin: false,
+  },
+});
 
 const styles = StyleSheet.create({
   margin: {
@@ -38,14 +56,23 @@ export default class HomeScreen extends Component {
   }
 
   navigateToGreetings() {
+    Sentry.captureMessage('NavigateToGreetings', {
+      level: SentrySeverity.Info,
+    });
     this.navigate(GREETINGS_SCENE_NAME);
   }
 
   navigateToJsx() {
+    Sentry.captureMessage('NavigateToJsx', {
+      level: SentrySeverity.Info,
+    });
     this.navigate(JSX_SCENE_NAME);
   }
 
   navigateToState() {
+    Sentry.captureMessage('NavigateToState', {
+      level: SentrySeverity.Info,
+    });
     this.navigate(STATE_SCENE_NAME);
   }
 
@@ -70,6 +97,23 @@ export default class HomeScreen extends Component {
           <Button
             onPress={this.navigateToState}
             title="State"
+          />
+        </View>
+        <View style={styles.margin}>
+          <Button
+            onPress={() => {
+              Sentry.nativeCrash();
+            }}
+            title="Native Crash"
+          />
+        </View>
+
+        <View style={styles.margin}>
+          <Button
+            onPress={() => {
+              console.log('FIX SENTRY ERROR');
+            }}
+            title="Throw error"
           />
         </View>
       </ScrollView>
