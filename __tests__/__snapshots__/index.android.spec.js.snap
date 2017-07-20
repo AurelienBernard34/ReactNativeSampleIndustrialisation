@@ -94,7 +94,7 @@ exports[`renders correctly 1`] = `
             "index": 0,
             "routes": Array [
               Object {
-                "key": "Init-id-1499699895385-0",
+                "key": "Init-id-1500544640404-0",
                 "routeName": "HOME_SCENE",
               },
             ],
