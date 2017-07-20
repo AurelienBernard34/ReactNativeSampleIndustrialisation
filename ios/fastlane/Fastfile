@@ -13,18 +13,45 @@
 # Update this, if you use features of a newer version
 fastlane_version "2.47.0"
 
-default_platform :android
+default_platform :ios
 
-platform :android do
+platform :ios do
+  before_all do
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    
+    
+  end
 
   desc "Runs all the tests"
   lane :test do
-    gradle(task: "test")
+    scan
   end
 
-  desc "Build a release"
+  desc "Deploy a new version to the App Store"
   lane :release do
-    gradle(task: "clean assembleRelease")
+    gym(
+      scheme: "ReactNativeSample",
+      configuration: "Release",
+      project: './ReactNativeSample.xcodeproj',
+      clean: true,
+      codesigning_identity: 'iPhone Distribution: Nicolas Hodicq (4BUCAUES66)',
+      export_method: 'ad-hoc'
+    )
+  end
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
   end
 end
 
