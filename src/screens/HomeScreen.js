@@ -5,6 +5,7 @@ import {
   StyleSheet,
   View,
   Text,
+  Alert,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import Config from 'react-native-config';
@@ -116,6 +117,18 @@ export default class HomeScreen extends Component {
               throw new Error();
             }}
             title="Throw error"
+          />
+        </View>
+        <View style={styles.margin}>
+          <Button
+            onPress={() => {
+              Alert.alert('Alerte declanché', 'Alerte Jenkins !', [
+                { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                { text: 'OK', onPress: () => console.log('OK Pressed') },
+              ],
+              { cancelable: false });
+            }}
+            title="Alert"
           />
         </View>
         <View style={styles.margin}>
