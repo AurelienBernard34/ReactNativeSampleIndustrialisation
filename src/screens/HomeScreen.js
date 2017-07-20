@@ -122,11 +122,8 @@ export default class HomeScreen extends Component {
         <View style={styles.margin}>
           <Button
             onPress={() => {
-              Alert.alert('Alerte declanché', 'Alerte Jenkins !', [
-                { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-                { text: 'OK', onPress: () => console.log('OK Pressed') },
-              ],
-              { cancelable: false });
+              Alert.alert('Alerte declanché', 'Alerte Jenkins !',
+                { cancelable: false });
             }}
             title="Alert"
           />
