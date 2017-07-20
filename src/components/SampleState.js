@@ -14,7 +14,6 @@ const imgs = [
 const INTERVAL_DELAY = 2000;
 
 export default class SampleState extends Component {
-
   static onPressButton() {
     Share.share({
       message: 'Share message',

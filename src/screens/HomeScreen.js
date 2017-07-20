@@ -43,7 +43,6 @@ const styles = StyleSheet.create({
 });
 
 export default class HomeScreen extends Component {
-
   static navigationOptions = {
     title: 'Home',
   };
@@ -114,7 +113,6 @@ export default class HomeScreen extends Component {
         <View style={styles.margin}>
           <Button
             onPress={() => {
-              console.log('FIX SENTRY ERROR');
               throw new Error();
             }}
             title="Throw error"

@@ -11,14 +11,13 @@ const styleGreetings = StyleSheet.create({
 });
 
 export default class GreetingsList extends Component {
-
   static handleFunction(param) {
     Alert.alert(`Received: ${JSON.stringify(param)}`);
   }
 
   render() {
     const greetings = _.map(this.props.names,
-       name => (<Greeting key={name} name={name} handleFunction={GreetingsList.handleFunction} />));
+      name => (<Greeting key={name} name={name} handleFunction={GreetingsList.handleFunction} />));
 
     return (
       <View style={styleGreetings.view}>

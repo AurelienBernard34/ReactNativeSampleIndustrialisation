@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
 const PLACEHOLDER = 'Ajouter un nom';
 
 export default class HomeScreen extends Component {
-
   static navigationOptions = {
     title: 'Greetings',
   };
